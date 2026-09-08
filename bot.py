@@ -8,7 +8,7 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("telegram").setLevel(logging.WARNING)
 
 # Dán API Key Gemini thật của bạn vào đây
-GEMINI_API_KEY = "DÁN_GEMINI_API_KEY_CỦA_BẠN_VÀO_ĐÂY"
+GEMINI_API_KEY = "AQ.Ab8RN6LFFcjrkwmvxPBY2SEK5ukTUNZx4-Y-gtpcsc_Bu6OGkg"
 TELEGRAM_BOT_TOKEN = "8890814478:AAE55jsK49r-10722YebbeRu9rK2hTpaOy0"
 
 genai.configure(api_key=GEMINI_API_KEY)
