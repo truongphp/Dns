@@ -1,65 +1,35 @@
 import google.generativeai as genai
-import streamlit as st
+from telegram import Update
+from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
 
-st.set_page_config(
-    page_title="Matrix AI Terminal", page_icon="🟢", layout="centered"
-)
+GEMINI_API_KEY = "ĐIỀN_GEMINI_API_KEY_CỦA_BẠN_VÀO_ĐÂY"
+TELEGRAM_BOT_TOKEN = "8890814478:AAE55jsK49r-10722YebbeRu9rK2hTpaOy0"
 
-st.markdown(
-    """
-    <style>
-        .stApp { background-color: #000000; color: #00ff66; font-family: 'Courier New', Courier, monospace; }
-        .stApp::before {
-            content: " "; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(0,255,102,0.03) 0%, rgba(0,0,0,0.95) 100%);
-            pointer-events: none; z-index: 0;
-        }
-        h1, h2, h3, p, label, .stMarkdown { color: #00ff66 !important; text-shadow: 0 0 6px rgba(0, 255, 102, 0.6); position: relative; z-index: 1; }
-        [data-testid="stSidebar"] { background-color: #050505; border-right: 1px solid #00ff6633; }
-        .stTextInput input, .stChatInput input { background-color: #0a0a0a !important; color: #00ff66 !important; border: 1px solid #00ff6666 !important; }
-        [data-testid="stChatMessage"] { background-color: rgba(10, 15, 10, 0.85); border: 1px solid #00ff6644; position: relative; z-index: 1; }
-        .matrix-title { text-align: center; font-weight: bold; letter-spacing: 3px; text-shadow: 0 0 15px #00ff66; margin-bottom: 20px; }
-    </style>
-""",
-    unsafe_allow_html=True,
-)
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel("gemini-2.0-flash")
 
-st.markdown(
-    "<h1 class='matrix-title'>🟢 MATRIX AI TERMINAL 🟢</h1>",
-    unsafe_allow_html=True,
-)
 
-with st.sidebar:
-  st.markdown("### ⚙️ CẤU HÌNH HỆ THỐNG")
-  gemini_key = st.text_input("Gemini API Key:", type="password")
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+  user_message = update.message.text
+  chat_id = update.message.chat_id
 
-if gemini_key:
-  genai.configure(api_key=gemini_key)
-  model = genai.GenerativeModel("gemini-2.0-flash")
+  sent_msg = await context.bot.send_message(
+      chat_id=chat_id, text="⚡ Đang xử lý tốc độ cao..."
+  )
+  try:
+    # Gọi async generate để không bị khựng luồng
+    response = await model.generate_content_async(user_message)
+    await context.bot.edit_message_text(
+        chat_id=chat_id, message_id=sent_msg.message_id, text=response.text
+    )
+  except Exception as e:
+    await context.bot.edit_message_text(
+        chat_id=chat_id, message_id=sent_msg.message_id, text=f"⚠️ Lỗi: {e}"
+    )
 
-  if "messages" not in st.session_state:
-    st.session_state.messages = []
 
-  for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-      st.markdown(message["content"])
-
-  if prompt := st.chat_input("Nhập lệnh..."):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-      st.markdown(prompt)
-
-    with st.chat_message("assistant"):
-      # Dùng container rỗng để ép chữ render trực tiếp mượt mà
-      response_container = st.empty()
-      response_container.markdown("🟢 Đang kết xuất dữ liệu...")
-      try:
-        response = model.generate_content(prompt)
-        response_container.markdown(response.text)
-        st.session_state.messages.append(
-            {"role": "assistant", "content": response.text}
-        )
-      except Exception as e:
-        response_container.error(f"Lỗi: {e}")
-else:
-  st.warning("⚠️ Nhập Gemini API Key vào sidebar để bắt đầu.")
+if __name__ == "__main__":
+  app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
+  app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
+  print("🤖 Telegram Bot Async đang bay...")
+  app.run_polling()
