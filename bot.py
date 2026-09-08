@@ -3,16 +3,16 @@ import google.generativeai as genai
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
 
-# Ẩn bớt log rác mạng của thư viện
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("telegram").setLevel(logging.WARNING)
 
-# Dán API Key Gemini thật của bạn vào đây
+# Gắn trực tiếp key và token
 GEMINI_API_KEY = "AQ.Ab8RN6LFFcjrkwmvxPBY2SEK5ukTUNZx4-Y-gtpcsc_Bu6OGkg"
 TELEGRAM_BOT_TOKEN = "8890814478:AAE55jsK49r-10722YebbeRu9rK2hTpaOy0"
 
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-2.0-flash")
+# Sử dụng Gemini 3.6 Flash mới nhất
+model = genai.GenerativeModel("gemini-3.6-flash")
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -24,20 +24,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
   )
 
   try:
-    if GEMINI_API_KEY == "DÁN_GEMINI_API_KEY_CỦA_BẠN_VÀO_ĐÂY":
-      await context.bot.edit_message_text(
-          chat_id=chat_id,
-          message_id=sent_msg.message_id,
-          text="⚠️ Chưa cấu hình Gemini API Key trong file bot.py!",
-      )
-      return
-
-    # Gọi API đồng bộ để phản hồi trực tiếp siêu tốc
     response = model.generate_content(user_message)
     reply_text = (
         response.text if response and response.text else "⚠️ Phản hồi trống."
     )
-
     await context.bot.edit_message_text(
         chat_id=chat_id, message_id=sent_msg.message_id, text=reply_text
     )
@@ -51,5 +41,5 @@ if __name__ == "__main__":
   app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
   app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
-  print("🟢 Bot Telegram đang chạy mượt mà...")
+  print("🟢 Bot Telegram (Gemini 3.6 Flash) đang chạy...")
   app.run_polling(poll_interval=0.3)
