@@ -43,3 +43,4 @@ if __name__ == "__main__":
 
   print("🟢 Bot Telegram (Gemini 3.6 Flash) đang chạy...")
   app.run_polling(poll_interval=0.3)
+r
