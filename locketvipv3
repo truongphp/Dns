@@ -294,7 +294,7 @@ if (ua.includes("Locket")) {
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
             uid: "vantruong_2026",
-            url: "https://i.ibb.co/JFgZsnvc/611548aa-b2b9-44c6-aacf-d6ead8fd6d42.png",
+            url: "https://i.ibb.co/mVX6L2hx/IMG-9028.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
@@ -330,54 +330,6 @@ if (ua.includes("Locket")) {
     // ============================================================
     // 7. HỆ THỐNG, CACHE & STORAGE CDN
     // ============================================================
-   Object.assign(obj.entries, {
-        widget_frame_event_max_images: "10",
-        android_widget_frame_event_enabled: "true",
-        widget_badge_enabled: "true",
-        widget_badge_v2: "true",
-        widget_stale_state_enabled: "false",
-        widget_last_sent_indicator: "false",
-        widget_sync_token_reload_mode: "clearTokenNever",
-        
-        // Kích hoạt tính năng Custom Widget Frame trong Locket Gold
-        custom_widget_frames: "enabled",
-        custom_widget_frames_enabled: "true",
-        
-        // Cấu hình kho khung tĩnh VIP Gold tùy chỉnh
-        widget_frames_config: JSON.stringify({
-            enabled: true,
-            allow_custom_frames: true,
-            unlock_all_styles: true,
-            default_style: "royal_gold_vip",
-            styles: [
-                {
-                    id: "royal_gold_vip",
-                    name: "👑 VIP Royal Gold",
-                    border_style: "ornate_gold",
-                    crown_badge: true,
-                    badge_text: "VIP",
-                    corner_radius: 28.0,
-                    glow_effect: true,
-                    glow_color: "#FFD700",
-                    overlay_asset: "royal_crown_frame"
-                }
-            ]
-        }),
-
-        // Danh sách ID khung đè vào menu chọn widget
-        widget_frame_styles: JSON.stringify([
-            "royal_gold_vip",
-            "gold_luxury",
-            "classic"
-        ]),
-
-        // Cấu hình sự kiện / Seasonal Frames đè
-        seasonal_frames_config: JSON.stringify({
-            enabled: true,
-            auto_rotate: false,
-            override_default: true,
-            current_season_theme: "royal_gold_vip"
-        }),
 
         live_activity_onboarding: "true",
         live_activity_onboarding_variant: "friending",
