@@ -5,7 +5,7 @@
 // 2. Ảnh tỉ lệ 1:1 (khuyên dùng 360x360 hoặc 500x500 px, dung lượng < 150KB)
 // 3. Phần giữa ảnh phải được xóa nền (trong suốt) để nhìn thấy ảnh Locket bên dưới
 // ============================================================
-var WIDGET_FRAME_IMAGE_URL = "https://i.ibb.co/MxWY8sNd/IMG-9060.png";
+var WIDGET_FRAME_IMAGE_URL = "https://i.ibb.co/NdH7YKmY/IMG-9066.jpg";
 var WIDGET_FRAME_PLACEMENT = "below"; // "below" (nằm dưới chữ/badge, đè lên ảnh) hoặc "above"
 var WIDGET_FRAME_VERSION = "v3";      // Đổi số này (v4, v5...) nếu giữ nguyên link cũ nhưng muốn ép Locket tải lại ảnh
 
