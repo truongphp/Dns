@@ -47,7 +47,7 @@ if (ua.includes("Locket")) {
                 {
                     title: "Tài khoản đã unlock premium by Văn Trường!",
                     body: "Flex với bạn bè ngay nào!🔥",
-                    imageURL: "https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9027.jpeg"
+                    imageURL: "https://i.ibb.co/HpbLbmvM/IMG-9027.jpg"
                 
                 }
             ],
@@ -293,8 +293,8 @@ if (ua.includes("Locket")) {
         widget_last_sent_indicator: "false",
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
-            uid: "midautumn_2026",
-            url: "https://i.ibb.co/JFgZsnvc/611548aa-b2b9-44c6-aacf-d6ead8fd6d42.png",
+            uid: "vantruong_2026",
+            url: "https://i.ibb.co/mVX6L2hx/IMG-9028.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
