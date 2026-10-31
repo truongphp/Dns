@@ -44,7 +44,7 @@ if (ua.includes("Locket")) {
             tag: "LOCKET GOLD",
             tag_gradient: true,
             tag_style: "gold_gradient",
-            title: "chúc mừng bạn ",
+            title: "Locket Gold ",
             feature_set: [
                 {
                     title: "Tài khoản đã được unlock premium by Văn Trường",
