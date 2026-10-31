@@ -1,6 +1,8 @@
-// Locket Gold & Vietnamese Overlays Remote Config Unlock Script (Fixed & Optimized v2)
-// Fixed: Event Widget Frames, 0.4Mbps Video Compression (<6MB for 30s), 12 Dynamic Captions, 18 Categorized Overlay Sections (153+ Captions + Server Merge), and 35 Boolean Type Fixes
-// Target pattern: ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+
+// Locket Gold, Event Widget Frames & Vietnamese Overlays Unlock Script (v3 - Universal)
+// Fixed: ISO Local Date parsing bug ("start_at" without "Z" when use_local_time_zone=true) so Event Frame & Widget Frame sync properly
+// Includes: Dual-endpoint support (Firebase Remote Config + RevenueCat Entitlements), 18 Categorized Overlay Sections (151+ Captions + Server Merge)
+// Target pattern (Remote Config): ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+
+// Optional pattern (RevenueCat): ^https:\/\/api\.revenuecat\.com\/.+\/(subscribers|receipts).*
 
 const customEntries = {
   "upsell_features": "{\"custom_widget_frames\":true,\"app_icon_picker\":true,\"unlimited_friends\":true}",
@@ -9,7 +11,7 @@ const customEntries = {
   "legal_notice_config": "{\"mode\":\"privacy_policy_sheet\",\"last_update_uid\":\"privacy_oct_31\",\"last_update_date\":1698796800,\"description\":\"Tap here to read the latest version. These updates include an explanation of how, going forward, we may use some of the information you provide us with to deliver relevant ads to you at the right time. We also expanded the policy to encompass our chat and reaction features. You may change your privacy preferences through the app settings. Thanks for using Locket 💛\",\"description_highlights\":[\"here\"],\"accept_title\":\"Continue\",\"reject_title\":\"Remind me later\",\"prompt_interval\":14400}",
   "widget_frame_event_show_in_profile": "true",
   "nimbus_cancellable_requests": "false",
-  "widget_rewind_event": "{\"uid\":\"rewind_monthly_september_2026\",\"override_monthly_schedule\":\"2026-09\",\"start_at\":\"2026-09-30T08:00:00\",\"end_at\":\"2026-10-01T12:00:00\",\"prefetch_moments\":false,\"playback_config\":{\"title\":\"September Rewind\",\"sticker_text\":\"Locket Rewind\",\"absolute_start_date\":\"2026-09-01T00:00:00Z\",\"absolute_end_date\":\"2026-09-29T23:00:00Z\",\"prompt_save\":true,\"prompt_share_options\":false,\"outro\":false,\"countdown\":true,\"campaign\":\"rewind_monthly_september_2026\"},\"widget_config\":{\"title\":\"September Rewind\"}}",
+  "widget_rewind_event": "{\"uid\":\"rewind_monthly_october_2026\",\"override_monthly_schedule\":\"2026-10\",\"start_at\":\"2024-01-01T00:00:00\",\"end_at\":\"2099-12-31T23:59:59\",\"prefetch_moments\":false,\"playback_config\":{\"title\":\"Locket Rewind\",\"sticker_text\":\"Locket Rewind\",\"absolute_start_date\":\"2026-01-01T00:00:00Z\",\"absolute_end_date\":\"2026-12-31T23:00:00Z\",\"prompt_save\":true,\"prompt_share_options\":true,\"outro\":false,\"countdown\":false,\"campaign\":\"rewind_monthly_october_2026\"},\"widget_config\":{\"title\":\"Locket Rewind\"}}",
   "android_enable_new_history_provider": "true",
   "history_ads_nimbus_visibility_min_percentage_override": "false",
   "sentry_performance_tracking": "false",
@@ -17,7 +19,7 @@ const customEntries = {
   "history_ads_mode": "disabled",
   "video_sound_enabled": "true",
   "gold_membership_card": "true",
-  "last_synced_widget_frame_event": "",
+  "last_synced_widget_frame_event": "khung_vipv3",
   "android_add_widget_button_on_home": "true",
   "android_upload_thumbnail_image_size": "1020",
   "video_contest_config": "null",
@@ -49,7 +51,7 @@ const customEntries = {
   "firestore_google_analytics_logging": "true",
   "use_custom_invite_link_interstitial": "true",
   "get_friend_request_reengagement_status": "false",
-  "synced_widget_frame": "{\"uid\":\"khung_vipv2\",\"title\":\"Khung VIP\",\"url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"image_url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"images\":[\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\"],\"placement\":\"above\",\"use_local_time_zone\":true,\"start_at\":\"2024-01-01T00:00:00Z\",\"end_at\":\"2099-12-31T23:59:59Z\"}",
+  "synced_widget_frame": "{\"uid\":\"khung_vipv3\",\"title\":\"Khung VIP\",\"name\":\"Khung VIP\",\"url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"image_url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"imageURL\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"images\":[\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\"],\"image_urls\":[\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\"],\"placement\":\"above\",\"use_local_time_zone\":true,\"start_at\":\"2024-01-01T00:00:00\",\"end_at\":\"2099-12-31T23:59:59\"}",
   "parent_center": "true",
   "signup_method_config": "phoneOnly",
   "qr_code_config": "{\"profile_enabled\":true,\"scanning_enabled\":true}",
@@ -253,7 +255,7 @@ const customEntries = {
   "friends_sheet_locket_count_config": "{\"items\":[{\"threshold\":0,\"emoji\":\"🌱 Người lạ ơi\"},{\"threshold\":1,\"emoji\":\"👋 Mới quen\"},{\"threshold\":10,\"emoji\":\"🤝 Quen quen\"},{\"threshold\":50,\"emoji\":\"🔥 Chí cốt\"},{\"threshold\":100,\"emoji\":\"💛 Bạn thân\"},{\"threshold\":300,\"emoji\":\"❤️‍🔥 Cạ cứng\"},{\"threshold\":500,\"emoji\":\"👑 Tri kỷ\"},{\"threshold\":1000,\"emoji\":\"💎 Hết nước chấm\"},{\"threshold\":5000,\"emoji\":\"🫶 Vợ/chồng online\"}]}",
   "flag_6": "2000",
   "audience_selector_enabled": "true",
-  "widget_frame_event": "{\"uid\":\"khung_vipv2\",\"title\":\"Khung VIP\",\"url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"image_url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"images\":[\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\"],\"placement\":\"above\",\"use_local_time_zone\":true,\"start_at\":\"2024-01-01T00:00:00Z\",\"end_at\":\"2099-12-31T23:59:59Z\"}",
+  "widget_frame_event": "{\"uid\":\"khung_vipv3\",\"title\":\"Khung VIP\",\"name\":\"Khung VIP\",\"url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"image_url\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"imageURL\":\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\",\"images\":[\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\"],\"image_urls\":[\"https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png\"],\"placement\":\"above\",\"use_local_time_zone\":true,\"start_at\":\"2024-01-01T00:00:00\",\"end_at\":\"2099-12-31T23:59:59\"}",
   "profile_qr_code_enabled": "true",
   "widget_frame_enabled": "true",
   "festive_theme_toggle_enabled": "true",
@@ -357,7 +359,7 @@ const customEntries = {
   "privacy_mode_enabled": "true",
   "android_friends_cache_threshold_ms": "7200000",
   "chat_mode": "5",
-  "camera_roll": "{\"flash_button\":true,\"max_duration\":30,\"maxDuration\":30,\"gold_max_duration\":30,\"goldMaxDuration\":30,\"video_max_duration\":30,\"videoMaxDuration\":30,\"longer_video_enabled\":true,\"longerVideoEnabled\":true,\"quality_mbps\":0.4,\"qualityMbps\":0.4}",
+  "camera_roll": "{\"enabled\":true,\"flash_button\":true,\"max_duration\":30.0,\"maxDuration\":30.0,\"gold_max_duration\":30.0,\"goldMaxDuration\":30.0,\"video_max_duration\":30.0,\"videoMaxDuration\":30.0,\"max_video_duration\":30.0,\"maxVideoDuration\":30.0,\"default_max_duration\":30.0,\"free_max_duration\":30.0,\"longer_video_enabled\":true,\"longerVideoEnabled\":true,\"longer_videos_enabled\":true,\"video_upload_enabled\":true,\"quality_mbps\":0.4,\"qualityMbps\":0.4}",
   "rollcall_tap_to_tag_enabled": "false",
   "sentry_profiles_sample_rate": "0",
   "prompt_contact_permissions_on_search": "true",
@@ -548,68 +550,104 @@ const customEntries = {
   "camera_filters_enabled": "true"
 };
 
-let body = {};
-try {
-  if (typeof $response !== "undefined" && $response.body) {
-    body = JSON.parse($response.body);
-  }
-} catch (e) {
-  body = {};
-}
+const url = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
 
-// Gộp (Merge) thông minh: Đưa 12 Tính năng đặc biệt lên đầu + giữ nguyên Caption sự kiện mới từ Server Locket + nối toàn bộ 17 nhóm Caption Mod tiếng Việt
-if (body.entries && body.entries.overlay_items && customEntries.overlay_items) {
+// 1. Nhánh xử lý nếu URL là RevenueCat (kích hoạt gói Gold thật có longer_video, custom_widget_frames, Huy hiệu)
+if (url.includes("api.revenuecat.com")) {
+  let rcBody = {};
   try {
-    const serverSections = JSON.parse(body.entries.overlay_items);
-    const customSections = JSON.parse(customEntries.overlay_items);
-    const existingIds = new Set();
-    const mergedSections = [];
-
-    // 1. Ưu tiên mục "✨ Tính năng đặc biệt" (12 tính năng động) lên vị trí đầu tiên
-    for (const sec of customSections) {
-      if (sec.section.includes("Tính năng đặc biệt")) {
-        mergedSections.push(sec);
-        (sec.items || []).forEach(i => existingIds.add(i.overlay_id));
-      }
-    }
-
-    // 2. Giữ lại các mục Caption gốc từ Server Locket (lọc bỏ các item đã có để tránh trùng lặp)
-    if (Array.isArray(serverSections)) {
-      for (const sec of serverSections) {
-        const filteredItems = (sec.items || []).filter(i => i && !existingIds.has(i.overlay_id));
-        if (filteredItems.length > 0) {
-          filteredItems.forEach(i => existingIds.add(i.overlay_id));
-          mergedSections.push({
-            section: sec.section || "🌐 Locket Gốc",
-            items: filteredItems
-          });
-        }
-      }
-    }
-
-    // 3. Nối toàn bộ các danh mục Caption Mod tiếng Việt (17 chuyên mục)
-    for (const sec of customSections) {
-      if (!sec.section.includes("Tính năng đặc biệt")) {
-        const filteredItems = (sec.items || []).filter(i => i && !existingIds.has(i.overlay_id));
-        if (filteredItems.length > 0) {
-          filteredItems.forEach(i => existingIds.add(i.overlay_id));
-          mergedSections.push({
-            section: sec.section,
-            items: filteredItems
-          });
-        }
-      }
-    }
-
-    customEntries.overlay_items = JSON.stringify(mergedSections);
-  } catch (err) {
-    // Nếu server không trả về JSON hợp lệ thì dùng trực tiếp customEntries.overlay_items
+    rcBody = JSON.parse($response.body || "{}");
+  } catch (e) {
+    rcBody = {};
   }
-}
+  rcBody.subscriber = rcBody.subscriber || {};
+  rcBody.subscriber.entitlements = rcBody.subscriber.entitlements || {};
+  rcBody.subscriber.subscriptions = rcBody.subscriber.subscriptions || {};
 
-body.state = "UPDATE";
-body.templateVersion = body.templateVersion || "999999";
-body.appName = body.appName || "com.locket.Locket";
-body.entries = Object.assign({}, body.entries || {}, customEntries);
+  const expireDate = "2099-12-31T23:59:59Z";
+  const purchaseDate = "2024-01-01T00:00:00Z";
+  const productId = "locket_3600_1y";
 
-$done({ body: JSON.stringify(body) });
+  rcBody.subscriber.entitlements["Gold"] = {
+    expires_date: expireDate,
+    product_identifier: productId,
+    purchase_date: purchaseDate,
+    grace_period_expires_date: null
+  };
+  rcBody.subscriber.subscriptions[productId] = {
+    billing_issues_detected_at: null,
+    expires_date: expireDate,
+    is_sandbox: false,
+    original_purchase_date: purchaseDate,
+    ownership_type: "PURCHASED",
+    period_type: "normal",
+    purchase_date: purchaseDate,
+    store: "app_store",
+    unsubscribe_detected_at: null
+  };
+  $done({ body: JSON.stringify(rcBody) });
+} else {
+  // 2. Nhánh xử lý chính cho Firebase Remote Config
+  let body = {};
+  try {
+    if (typeof $response !== "undefined" && $response.body) {
+      body = JSON.parse($response.body);
+    }
+  } catch (e) {
+    body = {};
+  }
+
+  // Gộp (Merge) thông minh: Đưa 12 Tính năng đặc biệt lên đầu + giữ nguyên Caption sự kiện mới từ Server Locket + nối toàn bộ 17 nhóm Caption Mod tiếng Việt
+  if (body.entries && body.entries.overlay_items && customEntries.overlay_items) {
+    try {
+      const serverSections = JSON.parse(body.entries.overlay_items);
+      const customSections = JSON.parse(customEntries.overlay_items);
+      const existingIds = new Set();
+      const mergedSections = [];
+
+      // Ưu tiên mục "✨ Tính năng đặc biệt" (12 tính năng động) lên vị trí đầu tiên
+      for (const sec of customSections) {
+        if (sec.section.includes("Tính năng đặc biệt")) {
+          mergedSections.push(sec);
+          (sec.items || []).forEach(i => existingIds.add(i.overlay_id));
+        }
+      }
+
+      // Giữ lại các mục Caption gốc từ Server Locket (lọc bỏ các item đã có để tránh trùng lặp)
+      if (Array.isArray(serverSections)) {
+        for (const sec of serverSections) {
+          const filteredItems = (sec.items || []).filter(i => i && !existingIds.has(i.overlay_id));
+          if (filteredItems.length > 0) {
+            filteredItems.forEach(i => existingIds.add(i.overlay_id));
+            mergedSections.push({
+              section: sec.section || "🌐 Locket Gốc",
+              items: filteredItems
+            });
+          }
+        }
+      }
+
+      // Nối toàn bộ các danh mục Caption Mod tiếng Việt (17 chuyên mục)
+      for (const sec of customSections) {
+        if (!sec.section.includes("Tính năng đặc biệt")) {
+          const filteredItems = (sec.items || []).filter(i => i && !existingIds.has(i.overlay_id));
+          if (filteredItems.length > 0) {
+            filteredItems.forEach(i => existingIds.add(i.overlay_id));
+            mergedSections.push({
+              section: sec.section,
+              items: filteredItems
+            });
+          }
+        }
+      }
+
+      customEntries.overlay_items = JSON.stringify(mergedSections);
+    } catch (err) {}
+  }
+
+  body.state = "UPDATE";
+  body.templateVersion = body.templateVersion || "999999";
+  body.appName = body.appName || "com.locket.Locket";
+  body.entries = Object.assign({}, body.entries || {}, customEntries);
+
+  $done({ body: JSON.stringify(body) });
