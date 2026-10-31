@@ -45,8 +45,8 @@ if (ua.includes("Locket")) {
             title: "chúc mừng bạn ",
             feature_set: [
                 {
-                    title: "✨✨✨✨✨",
-                    body: "💛💛💛💛💛💛💛💛💛💛",
+                    title: "Tài khoản đã unlock premium by Văn Trường!",
+                    body: "Flex với bạn bè ngay nào!🔥",
                     imageURL: "https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9027.jpeg"
                 
                 }
@@ -294,7 +294,7 @@ if (ua.includes("Locket")) {
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",
-            url: "https://raw.githubusercontent.com/truongphp/Dns/refs/heads/main/IMG_9026.png",
+            url: "https://i.ibb.co/JFgZsnvc/611548aa-b2b9-44c6-aacf-d6ead8fd6d42.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
