@@ -5,12 +5,12 @@
 // 2. Ảnh tỉ lệ 1:1 (khuyên dùng 360x360 hoặc 500x500 px, dung lượng < 150KB)
 // 3. Phần giữa ảnh phải được xóa nền (trong suốt) để nhìn thấy ảnh Locket bên dưới
 // ============================================================
-var WIDGET_FRAME_IMAGE_URL = "https://i.ibb.co/JFgZsnvc/611548aa-b2b9-44c6-aacf-d6ead8fd6d42.png";
+var WIDGET_FRAME_IMAGE_URL = "https://i.ibb.co/fdt35FTJ/IMG-9028.png";
 var WIDGET_FRAME_PLACEMENT = "below"; // "below" (nằm dưới chữ/badge, đè lên ảnh) hoặc "above"
 
 // Tự động tạo mã uid mới mỗi khi bạn đổi link ảnh để ép Locket tải viền mới (không bị kẹt cache cũ)
 function getWidgetFrameUid(url) {
-    if (url === "https://i.ibb.co/JFgZsnvc/611548aa-b2b9-44c6-aacf-d6ead8fd6d42.png") {
+    if (url === "https://i.ibb.co/fdt35FTJ/IMG-9028.png") {
         return "midautumn_2026";
     }
     var hash = 0;
