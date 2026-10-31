@@ -5,7 +5,9 @@ if (ua.includes("Locket")) {
     obj.Attention = "Chúc mừng bạn! Vui lòng không bán hoặc chia sẻ cho người khác!";
     obj.entries = obj.entries || {};
 
-    
+    // ============================================================
+    // 1. CẤU HÌNH GOLD, FEATURE GATES & PAYWALL
+    // ============================================================
     Object.assign(obj.entries, {
         feature_gates: JSON.stringify({
             app_icon_picker: "enabled",
@@ -45,7 +47,7 @@ if (ua.includes("Locket")) {
             title: "chúc mừng bạn ",
             feature_set: [
                 {
-                    title: "Tài khoản đã unlock premium by Văn Trường!",
+                    title: "Tài khoản đã được unlock premium by Văn Trường",
                     body: "Flex với bạn bè ngay nào!🔥",
                     imageURL: "https://i.ibb.co/HpbLbmvM/IMG-9027.jpg"
                 
@@ -294,9 +296,9 @@ if (ua.includes("Locket")) {
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",
-            url: "https://i.ibb.co/mVX6L2hx/IMG-9028.png",
+            url: "https://i.ibb.co/JFgZsnvc/611548aa-b2b9-44c6-aacf-d6ead8fd6d42.png",
             use_local_time_zone: true,
-            placement: "overlay",
+            placement: "below",
             start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59"
         }),
